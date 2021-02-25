@@ -13,6 +13,8 @@ $body->addProp(new Script("https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/di
 
 echo (new Html("en", $head, $body));
 
+$teste = new Form("id", "name", "POST");
+
 
 
 /**
