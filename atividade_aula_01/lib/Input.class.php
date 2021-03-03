@@ -29,10 +29,10 @@ class Input {
 		$html = "<div class='form-group'>";
 		$html .= "<span for='" . $this->name . "'>" . $this->descricao . "</span>";
 
-		$html .= "<input id='" . $this->id . "' name='" . $this->name . "' type='" . $this->type . "'";
+		$html .= "<input id='" . $this->id . "' name='" . $this->name . "' type='" . $this->type . "' ";
 
 		foreach ($this->otherParams as $obj) {
-
+			$html .= $obj[0] . '="' . $obj[1] . '" ';
 		}
 		$html .= "/>";
 		$html .= "</div>";
