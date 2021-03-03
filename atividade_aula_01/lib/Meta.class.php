@@ -2,16 +2,16 @@
 
 class Meta {
 
-    private $name;
-    private $content;
+	private $name;
+	private $content;
 
-    function Meta($name,$content) {
-        $this->name = $name;
-        $this->content = $content;
-    }
+	function Meta($name, $content) {
+		$this->name = $name;
+		$this->content = $content;
+	}
 
-    public function __toString() {
-        return '<meta name="' . $this->name . '" content="' . $this->content . '">';
-    }
+	public function __toString() {
+		return '<meta name="' . $this->name . '" content="' . $this->content . '">';
+	}
 
 }

@@ -2,36 +2,36 @@
 
 
 class TR {
-    private $classes;
-    private $content;
+	private $classes;
+	private $content;
 
-    /**
-     * TR constructor.
-     * @param $classes
-     * @param $content
-     */
-    public function __construct($classes, array $content) {
-        $this->classes = $classes;
-        $this->content = $content;
-    }
+	/**
+	 * TR constructor.
+	 * @param $classes
+	 * @param $content
+	 */
+	public function __construct($classes, array $content) {
+		$this->classes = $classes;
+		$this->content = $content;
+	}
 
-    function addContent($content) {
-        $this->content[] = $content;
-    }
+	function addContent($content) {
+		$this->content[] = $content;
+	}
 
-    public function __toString() {
-        $html = "<tr";
-        if(!is_null($this->classes) && !empty($this->classes)){
-            $html .= " class='" . $this->classes . "'";
-        }
-        $html .= ">";
+	public function __toString() {
+		$html = "<tr";
+		if (!is_null($this->classes) && !empty($this->classes)) {
+			$html .= " class='" . $this->classes . "'";
+		}
+		$html .= ">";
 
-        foreach ($this->content as $obj){
-            $html .= $obj;
-        }
+		foreach ($this->content as $obj) {
+			$html .= $obj;
+		}
 
-        $html .= "</tr>";
+		$html .= "</tr>";
 
-        return $html;
-    }
+		return $html;
+	}
 }

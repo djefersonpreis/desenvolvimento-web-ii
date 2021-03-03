@@ -1,18 +1,18 @@
 <?php
 
 class Body {
-    private $prop = array();
+	private $prop = array();
 
-    function addProp($prop) {
-        $this->prop[] = $prop;
-    }
+	function addProp($prop) {
+		$this->prop[] = $prop;
+	}
 
-    public function __toString() {
-        $body = '<body>';
-        foreach ($this->prop as $valor) {
-            $body .= $valor;
-        }
-        $body .= '</body>';
-        return $body;
-    }
+	public function __toString() {
+		$body = '<body>';
+		foreach ($this->prop as $valor) {
+			$body .= $valor;
+		}
+		$body .= '</body>';
+		return $body;
+	}
 }

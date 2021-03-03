@@ -10,5 +10,5 @@ class HtmlComment {
 
     public function __toString() {
         return '<!-- ' . $this->txt . ' -->';
-    }
+	}
 }

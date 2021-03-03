@@ -2,14 +2,14 @@
 
 class HeaderTitle {
 
-    private $txt;
+	private $txt;
 
-    function HeaderTitle($txt) {
-        $this->txt    = $txt;
-    }
+	function HeaderTitle($txt) {
+		$this->txt = $txt;
+	}
 
-    public function __toString() {
-        return '<h1>' . $this->txt . '</h1>';
-    }
+	public function __toString() {
+		return '<h1>' . $this->txt . '</h1>';
+	}
 
 }
