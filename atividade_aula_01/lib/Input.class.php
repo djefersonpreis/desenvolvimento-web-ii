@@ -26,15 +26,15 @@ class Input {
 	}
 
 	public function __toString() {
-		$html = "<div class='form-group'>";
-		$html .= "<span for='" . $this->name . "'>" . $this->descricao . "</span>";
 
-		$html .= "<input id='" . $this->id . "' name='" . $this->name . "' type='" . $this->type . "' ";
+//		<div class="input-group mb-3">
+//		  <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
+//		  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
+//		</div>
+		$html = "<div class='input-group'>";
+		$html .= "<span class='input-group-text' id='span-" . $this->id . "' >" . $this->descricao . "</span>";
 
-		foreach ($this->otherParams as $obj) {
-			$html .= $obj[0] . '="' . $obj[1] . '" ';
-		}
-		$html .= "/>";
+		$html .= "<input class='form-control' aria-describedby='span-" . $this->id . "' id='" . $this->id . "' name='" . $this->name . "' type='" . $this->type . "'/>";
 		$html .= "</div>";
 		return $html;
 	}
