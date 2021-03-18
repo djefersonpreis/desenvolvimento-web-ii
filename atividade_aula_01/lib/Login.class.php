@@ -3,15 +3,16 @@
 class Login {
 
 	public function __toString() {
+		$form = new Form("sigin", "sigin", "POST", "form-signin",
+			new HeaderTitle("LOGIN", 'text-center mb-3'),
+			new Input("email", "email", "Email", "email", null),
+			new Input("pass", "pass", "Senha", "password", null),
+			new Button("Login", "submit")
+		);
+		$form->setAction("./login");
 
-		return "" . new Div("color-default-background", array(
-			new HeaderTitle("LOGIN", 'text-center'),
-			new Div ("row", array(
-				new Input("user", "user", "Usuário", "text", null)
-			)),
-			new Div ("row", array(
-				new Input("pass", "pass", "Senha", "password", null)
-			))
-		));
+		$html = "" . new Div("color-default-background text-center", $form);
+
+		return $html;
 	}
 }

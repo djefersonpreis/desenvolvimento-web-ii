@@ -25,17 +25,10 @@ class Input {
 		$this->otherParams = $otherParams;
 	}
 
+
 	public function __toString() {
-
-//		<div class="input-group mb-3">
-//		  <span class="input-group-text" id="basic-addon3">https://example.com/users/</span>
-//		  <input type="text" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-//		</div>
-		$html = "<div class='input-group'>";
-		$html .= "<span class='input-group-text' id='span-" . $this->id . "' >" . $this->descricao . "</span>";
-
-		$html .= "<input class='form-control' aria-describedby='span-" . $this->id . "' id='" . $this->id . "' name='" . $this->name . "' type='" . $this->type . "'/>";
-		$html .= "</div>";
+		$html = "<span class='sr-only' id='span-" . $this->id . "' >" . $this->descricao . "</span>\n";
+		$html .= "<input class='form-control' aria-describedby='span-" . $this->id . "' id='" . $this->id . "' name='" . $this->name . "' type='" . $this->type . "' placeholder='" . $this->descricao . "'/>\n";
 		return $html;
 	}
 

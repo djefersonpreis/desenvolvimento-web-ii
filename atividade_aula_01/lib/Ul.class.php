@@ -1,27 +1,24 @@
 <?php
 
 class Ul {
-	private $lista = array();
-	private $class;
 
-	public function __construct($class) {
-		$this->class = $class;
+	private $aLista = array();
+	private $sClass;
+
+	public function __construct($sClass) {
+		$this->sClass = $sClass;
 	}
 
-	public function addLi($array) {
-		$this->lista[] = $array;
+	public function addElement(...$sAtributo) {
+		$this->aLista = array_merge($this->aLista, $sAtributo);
 	}
 
 	public function __toString() {
-		$ul = '<ul class="' . $this->class . '">';
-
-		foreach ($this->lista as $valor) {
-			$ul .= $valor;
+		$sUl = '<ul class="'.$this->sClass.'">';
+		foreach ($this->aLista as $sItemLista) {
+			$sUl .= $sItemLista;
 		}
-
-		$ul .= "</ul>";
-
-		return $ul;
+		$sUl .= "</ul>\n";
+		return $sUl;
 	}
-
 }

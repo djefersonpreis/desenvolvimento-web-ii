@@ -4,23 +4,23 @@ class Div {
 	private $lista = array();
 	private $class;
 
-	public function __construct($class = '', $contentArray = array()) {
+	public function __construct($class = '', ...$content) {
 		$this->class = $class;
-		$this->lista = $contentArray;
+		$this->lista = array_merge($this->lista, $content);
 	}
 
-	public function addElementToDiv($array) {
-		$this->lista[] = $array;
+	public function addElementToDiv(...$content) {
+		$this->lista = array_merge($this->lista, $content);
 	}
 
 	public function __toString() {
 		$div = '<div class="' . $this->class . '">';
 
-		foreach ($this->lista as $valor) {
-			$div .= $valor;
+		foreach ($this->lista as $item) {
+			$div .= $item;
 		}
 
-		$div .= "</div>";
+		$div .= "</div>\n";
 
 		return $div;
 	}

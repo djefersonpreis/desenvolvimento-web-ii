@@ -10,7 +10,8 @@ class Form {
 	private $method;
 	private $enctype;
 	private $novalidate;
-	private $content;
+	private $classes;
+	private $content = array();
 
 	/**
 	 * Form constructor.
@@ -19,15 +20,16 @@ class Form {
 	 * @param $method
 	 * @param $content
 	 */
-	public function __construct($id, $name, $method, array $content = null) {
+	public function __construct($id, $name, $method, $classes, ...$content) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->method = $method;
-		$this->content = $content;
+		$this->classes = $classes;
+		$this->content = array_merge($this->content, $content);
 	}
 
-	function addContent($content) {
-		$this->content[] = $content;
+	function addContent(...$content) {
+		$this->content = array_merge($this->content, $content);
 	}
 
 	/**
@@ -75,6 +77,10 @@ class Form {
 
 		if (isset($this->method) && !is_null($this->method)) {
 			$html .= " method='" . $this->method . "'";
+		}
+
+		if (isset($this->classes) && !is_null($this->classes)) {
+			$html .= " class='" . $this->classes . "'";
 		}
 
 		if (isset($this->action) && !is_null($this->action)) {
