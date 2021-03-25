@@ -3,20 +3,21 @@
 
 class TBody {
 	private $classes;
-	private $trs;
+	private $trs = array();
 
 	/**
 	 * TBody constructor.
 	 * @param $classes
 	 * @param $trs
 	 */
-	public function __construct($classes, array $trs) {
+	public function __construct($classes, ...$trs) {
 		$this->classes = $classes;
-		$this->trs = $trs;
+		$this->trs = array_merge($this->trs, $trs);
 	}
 
-	function addTr($tr) {
-		$this->trs[] = $tr;
+
+	public function addElement(...$trs) {
+		$this->trs = array_merge($this->trs, $trs);
 	}
 
 	public function __toString() {

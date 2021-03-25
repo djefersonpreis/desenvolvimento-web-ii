@@ -3,20 +3,20 @@
 
 class TH {
 	private $classes;
-	private $content;
+	private $content = array();
 
 	/**
 	 * TH constructor.
 	 * @param $classes
 	 * @param $content
 	 */
-	public function __construct($classes, array $content) {
+	public function __construct($classes = '', ...$content) {
 		$this->classes = $classes;
-		$this->content = $content;
+		$this->content = array_merge($this->content, $content);
 	}
 
-	function addContent($content) {
-		$this->content[] = $content;
+	public function addElement(...$content) {
+		$this->content = array_merge($this->content, $content);
 	}
 
 	public function __toString() {

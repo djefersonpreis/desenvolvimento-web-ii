@@ -22,8 +22,15 @@ $areaprincipal = new Div("row");
 $miolo = new Div("col-sm-10 bg-danger");
 if(isset($_GET["action"])){
 	try{
-		foreach ($conn->getSelect("SELECT * FROM ". $_GET["action"]) as $row) {
-			$miolo->addElementToDiv($row [1] . "<br/>");
+		$crudSql = $conn->getSelect("SELECT texto, crud_sql from MENU where acao = '" . $_GET["action"] . "'")[0];
+		if(!is_null($crudSql['crud_sql']) && !empty($crudSql['crud_sql'])){
+			$miolo->addElementToDiv(new Crud($crudSql['texto'], $crudSql['crud_sql']));
+			//foreach($conn->getSelect($crudSql[1]) as $row){
+			//	$miolo->addElementToDiv($row[1], " | ", $row[2], " | ", $row[3], " | ", $row[4], " | ", $row[5], " | ", "<br>");
+			//}
+			
+		} else {
+			$miolo->addElementToDiv(new HeaderTitle("Registros Não encontrados. <br/> Selecione outra opção no menu"));
 		}
 	} catch (Exception $e){
 		$miolo->addElementToDiv(new HeaderTitle("Registros Não encontrados. <br/> Selecione outra opção no menu"));
