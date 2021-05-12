@@ -37,10 +37,26 @@ class FileController {
 
     public function appendContent($content){
         try {
-            $file = fopen($this->file, "w");
+            $file = fopen($this->file, "a+");
             fwrite($file, $content);
             fclose($file);
             return true;
+        } catch (Exception $e){
+            return false;
+        }
+    }
+
+    public function getLastLine(){
+        try {
+            $file = fopen($this->file, "r");
+
+            $response; 
+            while (($line = fgets($file)) !== false) {
+                $response = $line;
+            }
+
+            fclose($file);
+            return $response;
         } catch (Exception $e){
             return false;
         }

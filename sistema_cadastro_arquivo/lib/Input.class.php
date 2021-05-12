@@ -17,7 +17,7 @@ class Input {
 	 * @param $type
 	 * @param $otherParams
 	 */
-	public function __construct($id, $name, $descricao, $type, $otherParams) {
+	public function __construct($id, $name, $descricao, $type, $otherParams = null) {
 		$this->id = $id;
 		$this->name = $name;
 		$this->descricao = $descricao;

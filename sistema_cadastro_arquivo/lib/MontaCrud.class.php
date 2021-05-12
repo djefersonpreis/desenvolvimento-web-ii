@@ -15,7 +15,11 @@ class MontaCrud {
 
         $response = "";
         $html = new Div("container");
-        $html->addElementToDiv(new Div('row', new HeaderTitle($this->title, 'text-center')));
+
+        $header = new Div('row', null);
+        $header->addElementToDiv(new Div("col-10", new HeaderTitle($this->title, 'text-center')));
+        $header->addElementToDiv(new Div("col-2 text-center", "<a class='btn btn-info' href='?action=inserir'>Novo Produto</a>"));
+        $html->addElementToDiv($header);
 
         $isHeadDefined = false;
         $tableHead = new THead('');
@@ -24,16 +28,22 @@ class MontaCrud {
             $tableHeadRow->addElement(new TH('', "ID"));
             $tableHeadRow->addElement(new TH('', "Nome"));
             $tableHeadRow->addElement(new TH('', "Valor"));
-            $tableHeadRow->addElement(new TH('', "Qauntidade em Estoque"));
+            $tableHeadRow->addElement(new TH('', "Quantidade em Estoque"));
             $tableHead->addElement($tableHeadRow);
         }
 
-
         $tableBody = new TBody('');
-
+        foreach($this->content as $val){
+            $tableBodyRow = new TR('');
+            $tableBodyRow->addElement(new TH('', $val->id));
+            $tableBodyRow->addElement(new TH('', $val->nome));
+            $tableBodyRow->addElement(new TH('', $val->valor));
+            $tableBodyRow->addElement(new TH('', $val->quantidadeEstoque));
+            $tableBody->addElement($tableBodyRow);
+        }
         
         $html->addElementToDiv(new Table('', 'table table-dark', $tableHead, $tableBody, null));
 
 		return "" . $html;
-	}
+    }
 }
