@@ -28,6 +28,7 @@ class MontaCrud {
             $tableHeadRow->addElement(new TH('', "Nome"));
             $tableHeadRow->addElement(new TH('', "Valor"));
             $tableHeadRow->addElement(new TH('', "Quantidade em Estoque"));
+            $tableHeadRow->addElement(new TH('', "Ações"));
             $tableHead->addElement($tableHeadRow);
         }
 
@@ -38,6 +39,9 @@ class MontaCrud {
             $tableBodyRow->addElement(new TD('', $val->nome));
             $tableBodyRow->addElement(new TD('', $val->valor));
             $tableBodyRow->addElement(new TD('', $val->quantidadeEstoque));
+            $tableBodyRow->addElement(new TD('', new Form(null, null, "POST", null, 
+                                                    new Input("id", "id", "ID", "hidden", null,  $val->id),
+                                                    new Button("Deletar", "submit", "btn btn-outline-danger", "delete"))));
             $tableBody->addElement($tableBodyRow);
         }
         

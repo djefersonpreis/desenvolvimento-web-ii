@@ -25,11 +25,24 @@ class FileController {
 
             $response = array(); 
             while (($line = fgets($file)) !== false) {
-                $response[] = $line;
+                if(!empty($line)){
+                    $response[] = $line;
+                }
             }
 
             fclose($file);
             return $response;
+        } catch (Exception $e){
+            return false;
+        }
+    }
+
+    public function clearContent(){
+        try {
+            $file = fopen($this->file, "w");
+            fwrite($file, "");
+            fclose($file);
+            return true;
         } catch (Exception $e){
             return false;
         }

@@ -30,6 +30,27 @@ if(isset($_GET["action"])){
         $produtos[] = new Produto($var[0], $var[1], $var[2], $var[3]);
     }
 
+    if(isset($_POST["delete"])){
+        $novoProdutos = array();
+        $fileContent->clearContent();
+        $fileStarted = false;
+        foreach($produtos as $val){
+            if($val->id != $_POST["id"]){
+                $fileContent->appendContent($val->getTextContent("|"));
+                $novoProdutos[] = $val;
+
+                if($fileStarted){
+                    $fileContent->appendContent("\n");
+                } else {
+                    $fileStarted = true;
+                }
+            } else {
+                echo "ID => " . $val->id;
+            }
+        }
+        header("Location: http://" . $_SERVER['HTTP_HOST'] . rtrim(dirname($_SERVER['PHP_SELF']), '/\\'));
+    }
+
     $body->addProp(new MontaCrud("Produtos", $produtos));
 }
 
