@@ -21,7 +21,6 @@ class MontaCrud {
         $header->addElementToDiv(new Div("col-2 text-center", "<a class='btn btn-info' href='?action=inserir'>Novo Produto</a>"));
         $html->addElementToDiv($header);
 
-        $isHeadDefined = false;
         $tableHead = new THead('');
         {
             $tableHeadRow = new TR('');
@@ -35,10 +34,10 @@ class MontaCrud {
         $tableBody = new TBody('');
         foreach($this->content as $val){
             $tableBodyRow = new TR('');
-            $tableBodyRow->addElement(new TH('', $val->id));
-            $tableBodyRow->addElement(new TH('', $val->nome));
-            $tableBodyRow->addElement(new TH('', $val->valor));
-            $tableBodyRow->addElement(new TH('', $val->quantidadeEstoque));
+            $tableBodyRow->addElement(new TD('', $val->id));
+            $tableBodyRow->addElement(new TD('', $val->nome));
+            $tableBodyRow->addElement(new TD('', $val->valor));
+            $tableBodyRow->addElement(new TD('', $val->quantidadeEstoque));
             $tableBody->addElement($tableBodyRow);
         }
         
