@@ -8,14 +8,18 @@
     </header>
     <main class="card-body row justify-content-center mt-3">
         <div class="col-10 col-sm-10 col-md-8 col-lg-6 mt-4">
-            <table class="table table-striped">
+            <div class="d-flex flex-row-reverse">
+                <a href="{{route('contas.create')}}" class="col-3 btn btn-primary"> Cadastrar </a>
+            </div>
+            <br />
+            <table class="table table-striped table-dark">
                 <thead class="thead-dark">
                     <tr>
                         <td scope="col"> Código </td>
                         <td scope="col"> Devedor </td>
                         <td scope="col"> Preço </td>
                         <td scope="col"> Data de Expiração </td>
-                        <td scope="col"> Menu </td>
+                        <td scope="col">  </td>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,9 +49,6 @@
                     @endif
                 </tbody>
             </table>
-            <div class="form-row justify-content-center">
-                <a href="{{route('contas.create')}}" class="col-6 btn btn-primary"> Cadastrar </a>
-            </div>
         </div>
 
 
